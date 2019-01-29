@@ -1,6 +1,8 @@
 import argparse #importerar argparse så att vi kan använda den funktionen.
 import datetime
 import csv #importerar csv
+x = datetime.datetime.now()
+
 
 parser = argparse.ArgumentParser() #förkortar
 parser.add_argument("-f", "--file", help="filename.csv") #lägger till ett argument till programmet
@@ -10,8 +12,4 @@ print(args.file) #printar ut filnamnet
 with open(args.file, newline='') as csvfile: #öppnar filen som csv fil
     reader = csv.DictReader(csvfile) #förkortar.
     for row in reader: #en loop som används tills listan är helt up printad
-        print(row['first_name'][0:3] + row['last_name'][0:3]) #printar ut raderna.
-
-
-x = datetime.datetime.now()
-print(x.year)    
+        print(row['first_name'][0:3] + row['last_name'][0:3] + str(x.year)[2:4]) #printar ut raderna.
